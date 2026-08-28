@@ -24,7 +24,7 @@
 
 |  | Public engineering work |
 |---:|---|
-| **35 + 10** | Standalone Windows tools plus David-branded commands in the installable SchunkOps module |
+| **35 + 14** | Standalone Windows tools plus David-branded commands in the installable SchunkOps module |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Runbook, handoff, change, recovery, access, backup, monitoring, retirement, and incident templates |
 | **3** | Windows and module CI pipelines validating scripts, manifests, exports, help, and tests |
@@ -37,10 +37,23 @@
 
 | Project | What it does |
 |---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five standalone tools plus **SchunkOps**, an installable module with ten David-branded Windows operations commands |
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five standalone tools plus **SchunkOps**, an installable module with fourteen Windows operations and incident-response commands |
 | [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven tools for monitoring, backup validation, configuration safety, logs, resources, port matrices, status data, and alerts |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbooks, handoff standards, and the engineering philosophy behind maintainable systems |
+
+## Flagship workflow: Windows incident evidence
+
+SchunkOps turns “the server is acting weird” into a repeatable evidence
+collection and handoff process:
+
+~~~powershell
+New-SchunkIncidentBundle -OutputPath C:\IR\INC-0042 -Profile Full
+~~~
+
+It captures structured JSON, records collector failures instead of hiding
+them, generates SHA-256 integrity hashes, and supports before/after comparison.
+Read the [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md).
 
 ## Engineering principles
 
