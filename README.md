@@ -24,9 +24,9 @@
 
 |  | Public engineering work |
 |---:|---|
-| **11** | Windows infrastructure and diagnostic tools |
-| **8** | FiveM monitoring, backup, security, and operations tools |
-| **5** | Runbook, handoff, change, recovery, and incident templates |
+| **16** | Windows infrastructure, identity, network, security, and diagnostic tools |
+| **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
+| **9** | Runbook, handoff, change, recovery, access, backup, monitoring, retirement, and incident templates |
 | **2** | Windows CI pipelines validating every PowerShell change |
 | **1** | Responsive, dependency-free live Operations Center |
 
@@ -37,8 +37,8 @@
 
 | Project | What it does |
 |---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Eleven tested PowerShell tools for health, DNS, TLS, certificates, events, ports, permissions, inventory, storage, and reboot state |
-| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eight tools for monitoring, backup validation, configuration safety, resource inventory, status data, and alerts |
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Sixteen tested PowerShell tools spanning AD, GPO, SMB, TLS, DNS, ports, NTFS, health, inventory, events, storage, and reboot state |
+| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven tools for monitoring, backup validation, configuration safety, logs, resources, port matrices, status data, and alerts |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbooks, handoff standards, and the engineering philosophy behind maintainable systems |
 
