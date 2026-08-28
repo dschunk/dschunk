@@ -25,12 +25,14 @@
 |  | Public engineering work |
 |---:|---|
 | **35 + 14** | Standalone Windows tools plus David-branded commands in the installable SchunkOps module |
+| **12** | Read-only Microsoft 365, Entra ID, Exchange Online, and Teams security audits |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Runbook, handoff, change, recovery, access, backup, monitoring, retirement, and incident templates |
-| **3** | Windows and module CI pipelines validating scripts, manifests, exports, help, and tests |
+| **4** | CI workflows validating scripts, manifests, exports, help, safety contracts, and tests |
 | **1** | Responsive, dependency-free live Operations Center |
 
 [![Windows CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml)
+[![M365 CI](https://github.com/dschunk/microsoft-365-ops/actions/workflows/validate.yml/badge.svg)](https://github.com/dschunk/microsoft-365-ops/actions/workflows/validate.yml)
 [![FiveM CI](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml)
 
 ## What I build
@@ -38,6 +40,7 @@
 | Project | What it does |
 |---|---|
 | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five standalone tools plus **SchunkOps**, an installable module with fourteen Windows operations and incident-response commands |
+| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twelve least-privilege audits for licensing, MFA, privileged roles, guests, Conditional Access, mailbox forwarding, permissions, domains, and external access |
 | [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven tools for monitoring, backup validation, configuration safety, logs, resources, port matrices, status data, and alerts |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbooks, handoff standards, and the engineering philosophy behind maintainable systems |
@@ -55,6 +58,21 @@ It captures structured JSON, records collector failures instead of hiding
 them, generates SHA-256 integrity hashes, and supports before/after comparison.
 Read the [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md).
 
+## Flagship workflow: Microsoft 365 security snapshot
+
+The Microsoft 365 toolkit collects repeatable tenant evidence without hiding
+partial failures or taking ownership of authentication:
+
+~~~powershell
+Connect-MgGraph -Scopes 'Organization.Read.All','User.Read.All','AuditLog.Read.All','Policy.Read.All','RoleManagement.Read.Directory','Directory.Read.All','Domain.Read.All'
+./scripts/Export-M365SecuritySnapshot.ps1 -OutputDirectory C:\Evidence\M365
+~~~
+
+The bundle contains structured CSV and JSON, collection metadata, failed-report
+details, and SHA-256 integrity hashes. Review the project's
+[permission map](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/PERMISSIONS.md)
+and [threat model](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/THREAT-MODEL.md).
+
 ## Engineering principles
 
 - **Build for the next engineer.** A system is not finished when it works only for its creator.
@@ -67,6 +85,10 @@ Read the [15-minute Windows incident triage](https://github.com/dschunk/windows-
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white)
 ![Windows Server](https://img.shields.io/badge/Windows%20Server-0078D4?style=flat-square&logo=windows&logoColor=white)
+![Microsoft 365](https://img.shields.io/badge/Microsoft%20365-D83B01?style=flat-square&logo=microsoft&logoColor=white)
+![Microsoft Entra](https://img.shields.io/badge/Microsoft%20Entra-5E5CE6?style=flat-square&logo=microsoftazure&logoColor=white)
+![Exchange Online](https://img.shields.io/badge/Exchange%20Online-0078D4?style=flat-square&logo=microsoftexchange&logoColor=white)
+![Microsoft Teams](https://img.shields.io/badge/Microsoft%20Teams-6264A7?style=flat-square&logo=microsoftteams&logoColor=white)
 ![C Sharp](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![VMware](https://img.shields.io/badge/VMware-607078?style=flat-square&logo=vmware&logoColor=white)
@@ -87,7 +109,9 @@ I was born in Smolensk, Russia, adopted as a child, and raised in New Hampshire.
 ### Start here
 
 If you manage Windows infrastructure, start with [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit).  
+If you secure a Microsoft 365 tenant, use [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops).  
 If you operate a FiveM community, explore [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops).  
 If you care about maintainable engineering, read [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there).
 
 Useful feedback, issues, and pull requests are welcome.
+
