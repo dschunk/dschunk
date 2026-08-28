@@ -1,12 +1,20 @@
-# David Schunk
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dschunk/dschunk/main/assets/profile-banner.svg" alt="David Schunk — Infrastructure, Automation, Operations" width="100%" />
+</p>
 
-### Senior IT Engineer · Infrastructure Builder · Automation Advocate
+<p align="center">
+  <strong>I build systems the next engineer can understand, operate, and trust.</strong>
+</p>
 
-I build infrastructure, automation, and operational tools that are **secure, observable, documented, and understandable by someone other than the person who built them**.
+<p align="center">
+  Senior IT Engineer focused on infrastructure, automation, operational visibility, and maintainable systems.
+</p>
 
-[![Website](https://img.shields.io/badge/davidschunk.com-0B1F3A?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.davidschunk.com/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-David%20Schunk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/david-schunk/)
-[![Newsletter](https://img.shields.io/badge/Newsletter-Best%20Practices%20for%20Everyday%20IT-C9A227?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/newsletters/best-practices-for-everyday-it-7075059974573314048/)
+<p align="center">
+  <a href="https://www.davidschunk.com/"><img src="https://img.shields.io/badge/davidschunk.com-0B1F3A?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+  <a href="https://www.linkedin.com/in/dschunk/"><img src="https://img.shields.io/badge/LinkedIn-David%20Schunk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/newsletters/best-practices-for-everyday-it-7075059974573314048/"><img src="https://img.shields.io/badge/Newsletter-Everyday%20IT-C9A227?style=for-the-badge&logo=linkedin&logoColor=white" alt="Best Practices for Everyday IT" /></a>
+</p>
 
 ## What I build
 
