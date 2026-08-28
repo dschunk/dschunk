@@ -24,10 +24,10 @@
 
 |  | Public engineering work |
 |---:|---|
-| **35** | Windows infrastructure, identity, network, security, virtualization, web, printing, evidence, and diagnostic tools |
+| **35 + 10** | Standalone Windows tools plus David-branded commands in the installable SchunkOps module |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Runbook, handoff, change, recovery, access, backup, monitoring, retirement, and incident templates |
-| **2** | Windows CI pipelines validating every PowerShell change |
+| **3** | Windows and module CI pipelines validating scripts, manifests, exports, help, and tests |
 | **1** | Responsive, dependency-free live Operations Center |
 
 [![Windows CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml)
@@ -37,7 +37,7 @@
 
 | Project | What it does |
 |---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five tested PowerShell tools spanning AD, GPO, DHCP, DNS, SMB, IIS, Hyper-V, printing, RDP, TLS, BitLocker, firewall, updates, event logs, evidence, and inventory |
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five standalone tools plus **SchunkOps**, an installable module with ten David-branded Windows operations commands |
 | [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven tools for monitoring, backup validation, configuration safety, logs, resources, port matrices, status data, and alerts |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbooks, handoff standards, and the engineering philosophy behind maintainable systems |
