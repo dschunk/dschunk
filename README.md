@@ -16,13 +16,30 @@
   <a href="https://www.linkedin.com/newsletters/best-practices-for-everyday-it-7075059974573314048/"><img src="https://img.shields.io/badge/Newsletter-Everyday%20IT-C9A227?style=for-the-badge&logo=linkedin&logoColor=white" alt="Best Practices for Everyday IT" /></a>
 </p>
 
+<p align="center">
+  <a href="https://dschunk.github.io/infrastructure-dashboard/"><img src="https://img.shields.io/badge/LIVE_DEMO-OPEN_OPERATIONS_CENTER-52D69A?style=for-the-badge&logo=githubpages&logoColor=071426" alt="Open live Operations Center demo" /></a>
+</p>
+
+## Portfolio snapshot
+
+|  | Public engineering work |
+|---:|---|
+| **11** | Windows infrastructure and diagnostic tools |
+| **8** | FiveM monitoring, backup, security, and operations tools |
+| **5** | Runbook, handoff, change, recovery, and incident templates |
+| **2** | Windows CI pipelines validating every PowerShell change |
+| **1** | Responsive, dependency-free live Operations Center |
+
+[![Windows CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml)
+[![FiveM CI](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml)
+
 ## What I build
 
 | Project | What it does |
 |---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Practical PowerShell diagnostics and automation for everyday infrastructure work |
-| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Monitoring, backup, health-check, and alerting tools for Windows-hosted FiveM servers |
-| [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A sanitized case study in building an operations center for servers, services, storage, events, and staff workflows |
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Eleven tested PowerShell tools for health, DNS, TLS, certificates, events, ports, permissions, inventory, storage, and reboot state |
+| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eight tools for monitoring, backup validation, configuration safety, resource inventory, status data, and alerts |
+| [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbooks, handoff standards, and the engineering philosophy behind maintainable systems |
 
 ## Engineering principles
