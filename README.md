@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dschunk/dschunk/main/assets/profile-banner.svg" alt="David Schunk — Infrastructure, Automation, Operations" width="100%" />
+  <img src="https://raw.githubusercontent.com/dschunk/dschunk/main/assets/profile-banner.svg?v=20260829-2" alt="David Schunk — Infrastructure, Automation, Operations" width="100%" />
 </p>
 
 <p align="center">
