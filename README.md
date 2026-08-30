@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-  Senior IT Engineer building Windows and Microsoft 365 automation, incident-response tooling,<br>
-  operational dashboards, and production platforms for real organizations and communities.
+  Personal open-source and community projects spanning Windows and Microsoft 365 automation,<br>
+  incident-response tooling, operational dashboards, documentation, and production platforms.
 </p>
 
 <p align="center">
@@ -21,6 +21,8 @@
   <a href="https://dschunk.github.io/infrastructure-dashboard/"><img src="https://img.shields.io/badge/LIVE_DEMO-OPERATIONS_CENTER-52D69A?style=for-the-badge&logo=githubpages&logoColor=071426" alt="Open live Operations Center demo" /></a>
   <a href="https://russianadoptees.com/"><img src="https://img.shields.io/badge/LIVE_PLATFORM-RUSSIAN_ADOPTEES-D4A72C?style=for-the-badge&logo=cloudflare&logoColor=071426" alt="Open Russian Adoptees Organization" /></a>
 </p>
+
+> **Personal-project boundary:** Unless a repository explicitly states otherwise, the work showcased on this personal GitHub profile is maintained as independent personal, open-source, or community work. No affiliation with or endorsement by any current or former employer is implied. These repositories are not intended to contain employer confidential or proprietary information, non-public internal configurations, customer data, credentials, or employer work product.
 
 ## Engineering portfolio
 
