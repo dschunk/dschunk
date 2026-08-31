@@ -25,11 +25,12 @@ If you work in IT, start with the problem in front of you.
 
 | Role / problem | Start here | What you get |
 |---|---|---|
-| **Help desk / desktop support** | [Windows IT Toolkit — Help Desk Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/HELPDESK.md) | Five-minute endpoint triage, DNS, domain trust, SMB, RDP, admin checks, escalation evidence |
+| **Help desk / desktop support** | [Windows Help Desk Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/HELPDESK.md) | Five-minute endpoint triage, DNS, domain trust, SMB, RDP, admin checks, escalation evidence |
 | **Windows sysadmin** | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | 35 standalone tools + the 28-command **SchunkOps** PowerShell module |
 | **AD / identity engineer** | [SchunkOps Windows](https://github.com/dschunk/windows-it-toolkit) | Replication, trust, account lockouts, Kerberos SPNs, GPO change review, DNS, time, local admin review |
 | **Senior infrastructure engineer** | [Senior Engineer Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/SENIOR-ENGINEER.md) | Lockout tracing, Kerberos, GPO fingerprints, DHCP/DNS, certificates, clusters, fleet health, vSphere |
-| **Microsoft 365 help desk / admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 15 read-only support and audit tools for users, licenses, mailboxes, Entra, Exchange Online, Teams, MFA, guests, and CA |
+| **Microsoft 365 help desk / admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 20 read-only support and audit tools for users, licenses, mailboxes, Entra, Exchange Online, Teams, MFA, guests, and CA |
+| **Senior M365 / identity engineer** | [M365 Senior Admin Field Guide](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/SENIOR-ADMIN.md) | Sign-in failure correlation, service health, privileged users, transport rules, mailbox delegation, tenant evidence |
 | **Incident responder** | [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md) | Structured JSON evidence, collector status, timestamps, SHA-256 hashes, before/after comparison |
 | **Infrastructure / operations engineer** | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbook, recovery, monitoring, access, change, ownership, and handoff templates |
 | **Platform / dashboard builder** | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A live operations-center interface and public implementation example |
@@ -72,7 +73,7 @@ The operating model is deliberate: **collect first, change second, document alwa
 |---:|---|
 | **35** | Standalone Windows administration, security, networking, identity, and diagnostic tools |
 | **28** | Installable commands in the **SchunkOps** Windows PowerShell module |
-| **15** | Read-only Microsoft 365 support, Entra ID, Exchange Online, Teams, and security-audit tools |
+| **20** | Read-only Microsoft 365 support, Entra ID, Exchange Online, Teams, tenant-engineering, and security-audit tools |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Production-ready runbook, recovery, access, change, monitoring, and handoff templates |
 | **5+** | GitHub Actions workflows enforcing parsing, analysis, tests, safety contracts, and web validation |
@@ -141,7 +142,7 @@ This is the kind of output I want attached to an escalation instead of a screens
 
 ## SchunkOps Microsoft 365
 
-[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) covers first-contact support as well as tenant-wide audit work. It is intentionally read-only, expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
+[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) now spans first-contact support through senior tenant engineering with **20 read-only tools**. Authentication stays with Microsoft's supported modules and the operator's chosen scopes; the scripts do not silently request broader permission or modify tenant state.
 
 ### First-contact support
 
@@ -157,6 +158,27 @@ This is the kind of output I want attached to an escalation instead of a screens
 ```
 
 The [Microsoft 365 Help Desk Field Guide](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/HELPDESK.md) covers sign-in, licenses, mailbox issues, forwarding, shared mailboxes, Teams external access, guests, incident evidence, and what to include before escalation.
+
+### Senior tenant engineering
+
+```powershell
+# Why are sign-ins failing repeatedly?
+./scripts/Get-M365SignInFailureSummary.ps1 -Hours 24
+
+# Is Microsoft reporting an upstream incident?
+./scripts/Get-M365ServiceHealthIncident.ps1
+
+# Which privileged users deserve review?
+./scripts/Get-EntraPrivilegedUserReview.ps1
+
+# Which transport rules route, copy, reject, quarantine, or delete mail?
+./scripts/Get-ExchangeTransportRuleAudit.ps1 -OnlyReviewRecommended
+
+# Who can access or impersonate mailboxes?
+./scripts/Get-ExchangeMailboxDelegateExposure.ps1
+```
+
+The [Microsoft 365 Senior Admin Field Guide](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/SENIOR-ADMIN.md) turns those tools into repeatable workflows for authentication incidents, service-health correlation, privileged-account review, mail-flow analysis, delegation exposure, and tenant evidence capture.
 
 ### Tenant / security evidence
 
@@ -181,7 +203,7 @@ It also answers operational questions such as:
 | Project | Engineering value |
 |---|---|
 | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Help desk through senior infrastructure: 35 standalone tools, 28 SchunkOps commands, three field guides, evidence bundles, Pester, PSScriptAnalyzer, and Windows CI |
-| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Fifteen read-only support and audit tools for user triage, licensing, mailboxes, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
+| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twenty read-only support and engineering tools for user triage, sign-in failures, service health, licensing, mailboxes, MFA, privileged roles, guests, Conditional Access, mail flow, delegation, forwarding, domains, and external access |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Operational templates and the engineering philosophy behind systems another person can safely inherit |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven production-minded tools for Windows-hosted FiveM monitoring, backup validation, configuration safety, logs, resources, ports, and alerts |
