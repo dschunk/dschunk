@@ -26,38 +26,41 @@ If you work in IT, start with the problem in front of you.
 | Role / problem | Start here | What you get |
 |---|---|---|
 | **Help desk / desktop support** | [Windows IT Toolkit — Help Desk Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/HELPDESK.md) | Five-minute endpoint triage, DNS, domain trust, SMB, RDP, admin checks, escalation evidence |
-| **Windows sysadmin** | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | 35 standalone tools + the 20-command **SchunkOps** PowerShell module |
-| **AD / identity engineer** | [SchunkOps Windows](https://github.com/dschunk/windows-it-toolkit) | Domain trust, DC reachability, replication health, stale objects, GPO, time, DNS, local admin review |
+| **Windows sysadmin** | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | 35 standalone tools + the 28-command **SchunkOps** PowerShell module |
+| **AD / identity engineer** | [SchunkOps Windows](https://github.com/dschunk/windows-it-toolkit) | Replication, trust, account lockouts, Kerberos SPNs, GPO change review, DNS, time, local admin review |
+| **Senior infrastructure engineer** | [Senior Engineer Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/SENIOR-ENGINEER.md) | Lockout tracing, Kerberos, GPO fingerprints, DHCP/DNS, certificates, clusters, fleet health, vSphere |
 | **Microsoft 365 help desk / admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 15 read-only support and audit tools for users, licenses, mailboxes, Entra, Exchange Online, Teams, MFA, guests, and CA |
 | **Incident responder** | [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md) | Structured JSON evidence, collector status, timestamps, SHA-256 hashes, before/after comparison |
 | **Infrastructure / operations engineer** | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbook, recovery, monitoring, access, change, ownership, and handoff templates |
 | **Platform / dashboard builder** | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A live operations-center interface and public implementation example |
 
-## The command I want help desk to know
+## Start at the support desk. Keep going until the problem is understood.
 
 ```powershell
 Import-Module SchunkOps
+
+# Help desk: what is wrong with this Windows machine?
 Get-SchunkEndpointTriage
-```
 
-That one command gives a technician a structured first look at uptime, memory pressure, disks, active IP/DNS/gateway/DHCP configuration, domain membership, machine secure channel, pending reboot state, Windows Time source, stopped automatic services, and recent System/Application critical and error events.
+# Sysadmin: which machines actually need attention?
+Get-SchunkFleetHealth -ComputerName server01,server02,server03
 
-Then move up the stack instead of guessing:
+# AD engineer: where is the lockout coming from?
+Get-SchunkAccountLockoutTrace -Identity jsmith -LookbackHours 24
 
-```powershell
-# Trust relationship / domain issue
-Get-SchunkDomainTrustStatus -TestPorts
+# Kerberos: does this service identity own a duplicate SPN?
+Get-SchunkKerberosSpnAudit -Identity svc_web
 
-# Works by IP, fails by name
-Test-SchunkDnsClient -Name fileserver.contoso.com
+# Group Policy: what changed?
+Get-SchunkGpoChangeAudit -SinceDays 14 -IncludeFingerprint
 
-# Senior AD check
-Get-SchunkADReplicationHealth
+# Infrastructure: is the cluster actually healthy?
+Get-SchunkClusterHealth -Cluster sqlcluster01
 
-# Privilege review
-Get-SchunkLocalAdministrator -ComputerName PC001,PC002,SERVER01
+# VMware: what needs attention in vSphere?
+Get-SchunkVSphereInventory -IncludeSnapshots
 
-# Server / incident evidence
+# Incident response: preserve the evidence
 New-SchunkIncidentBundle -OutputPath C:\IR\INC-0042 -Profile Full
 ```
 
@@ -68,7 +71,7 @@ The operating model is deliberate: **collect first, change second, document alwa
 | Delivered | Public proof |
 |---:|---|
 | **35** | Standalone Windows administration, security, networking, identity, and diagnostic tools |
-| **20** | Installable commands in the **SchunkOps** Windows PowerShell module |
+| **28** | Installable commands in the **SchunkOps** Windows PowerShell module |
 | **15** | Read-only Microsoft 365 support, Entra ID, Exchange Online, Teams, and security-audit tools |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Production-ready runbook, recovery, access, change, monitoring, and handoff templates |
@@ -82,7 +85,7 @@ The operating model is deliberate: **collect first, change second, document alwa
 
 ## Flagship: SchunkOps for Windows
 
-[Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) is the main field kit: 35 standalone scripts for grab-and-run administration plus a curated 20-command module for repeatable operations.
+[Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) is the main field kit: 35 standalone scripts for grab-and-run administration plus a curated **28-command** module for repeatable operations.
 
 ### Help desk / endpoint
 
@@ -95,6 +98,7 @@ The operating model is deliberate: **collect first, change second, document alwa
 
 ### Windows / server operations
 
+- `Get-SchunkFleetHealth`
 - `Get-SchunkServerHealth`
 - `Get-SchunkServiceFailure`
 - `Get-SchunkEventTriage`
@@ -102,10 +106,22 @@ The operating model is deliberate: **collect first, change second, document alwa
 - `Get-SchunkScheduledTaskAudit`
 - `Get-SchunkWindowsUpdateHistory`
 
-### AD / identity
+### AD / identity / Kerberos
 
 - `Get-SchunkADReplicationHealth`
-- standalone AD health, stale user/computer, GPO, DC port, DNS, DHCP, and time-synchronization tools
+- `Get-SchunkAccountLockoutTrace`
+- `Get-SchunkKerberosSpnAudit`
+- `Get-SchunkGpoChangeAudit`
+- standalone AD health, stale user/computer, DC port, DNS, DHCP, and time-synchronization tools
+
+### Senior infrastructure
+
+- `Get-SchunkDhcpDnsConsistency`
+- `Test-SchunkCertificateChain`
+- `Get-SchunkClusterHealth`
+- `Get-SchunkVSphereInventory`
+
+The [Senior Engineer Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/SENIOR-ENGINEER.md) ties these together into practical investigations for recurring lockouts, Kerberos failures, policy changes, stale name resolution, trust-chain problems, cluster degradation, fleet triage, and vSphere review.
 
 ### Incident response
 
@@ -125,7 +141,7 @@ This is the kind of output I want attached to an escalation instead of a screens
 
 ## SchunkOps Microsoft 365
 
-[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) now covers first-contact support as well as tenant-wide audit work. It is intentionally read-only, expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
+[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) covers first-contact support as well as tenant-wide audit work. It is intentionally read-only, expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
 
 ### First-contact support
 
@@ -164,7 +180,7 @@ It also answers operational questions such as:
 
 | Project | Engineering value |
 |---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Help desk through senior-engineer Windows operations: 35 standalone tools, 20 SchunkOps commands, field guides, evidence bundles, Pester, PSScriptAnalyzer, and Windows CI |
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Help desk through senior infrastructure: 35 standalone tools, 28 SchunkOps commands, three field guides, evidence bundles, Pester, PSScriptAnalyzer, and Windows CI |
 | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Fifteen read-only support and audit tools for user triage, licensing, mailboxes, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Operational templates and the engineering philosophy behind systems another person can safely inherit |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
