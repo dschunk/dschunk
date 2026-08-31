@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <strong>I build systems the next engineer can understand, operate, secure, and trust.</strong>
+  <strong>Windows • Microsoft 365 • Identity • Infrastructure • Incident Response</strong>
 </p>
 
 <p align="center">
-  Personal open-source and community projects spanning Windows and Microsoft 365 automation,<br>
-  incident-response tooling, operational dashboards, documentation, and production platforms.
+  Open-source tools and operational playbooks built for the people who actually have to support the environment.<br>
+  <strong>Help desk can use them. Sysadmins can automate them. Senior engineers can audit and extend them.</strong>
 </p>
 
 <p align="center">
@@ -17,70 +17,127 @@
   <a href="https://www.linkedin.com/newsletters/best-practices-for-everyday-it-7075059974573314048/"><img src="https://img.shields.io/badge/Newsletter-Everyday%20IT-C9A227?style=for-the-badge&logo=linkedin&logoColor=white" alt="Best Practices for Everyday IT" /></a>
 </p>
 
-<p align="center">
-  <a href="https://dschunk.github.io/infrastructure-dashboard/"><img src="https://img.shields.io/badge/LIVE_DEMO-OPERATIONS_CENTER-52D69A?style=for-the-badge&logo=githubpages&logoColor=071426" alt="Open live Operations Center demo" /></a>
-  <a href="https://russianadoptees.com/"><img src="https://img.shields.io/badge/LIVE_PLATFORM-RUSSIAN_ADOPTEES-D4A72C?style=for-the-badge&logo=cloudflare&logoColor=071426" alt="Open Russian Adoptees Organization" /></a>
-</p>
-
 > **Personal-project boundary:** Unless a repository explicitly states otherwise, the work showcased on this personal GitHub profile is maintained as independent personal, open-source, or community work. No affiliation with or endorsement by any current or former employer is implied. These repositories are not intended to contain employer confidential or proprietary information, non-public internal configurations, customer data, credentials, or employer work product.
 
-## Engineering portfolio
+# IT Operations Center
+
+If you work in IT, start with the problem in front of you.
+
+| Role / problem | Start here | What you get |
+|---|---|---|
+| **Help desk / desktop support** | [Windows IT Toolkit — Help Desk Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/HELPDESK.md) | Five-minute endpoint triage, DNS, domain trust, SMB, RDP, admin checks, escalation evidence |
+| **Windows sysadmin** | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | 35 standalone tools + the 20-command **SchunkOps** PowerShell module |
+| **AD / identity engineer** | [SchunkOps Windows](https://github.com/dschunk/windows-it-toolkit) | Domain trust, DC reachability, replication health, stale objects, GPO, time, DNS, local admin review |
+| **Microsoft 365 admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 12 read-only Entra, Exchange Online, Teams, licensing, MFA, guest, CA, and forwarding audits |
+| **Incident responder** | [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md) | Structured JSON evidence, collector status, timestamps, SHA-256 hashes, before/after comparison |
+| **Infrastructure / operations engineer** | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbook, recovery, monitoring, access, change, ownership, and handoff templates |
+| **Platform / dashboard builder** | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A live operations-center interface and public implementation example |
+
+## The command I want help desk to know
+
+```powershell
+Import-Module SchunkOps
+Get-SchunkEndpointTriage
+```
+
+That one command gives a technician a structured first look at uptime, memory pressure, disks, active IP/DNS/gateway/DHCP configuration, domain membership, machine secure channel, pending reboot state, Windows Time source, stopped automatic services, and recent System/Application critical and error events.
+
+Then move up the stack instead of guessing:
+
+```powershell
+# Trust relationship / domain issue
+Get-SchunkDomainTrustStatus -TestPorts
+
+# Works by IP, fails by name
+Test-SchunkDnsClient -Name fileserver.contoso.com
+
+# Senior AD check
+Get-SchunkADReplicationHealth
+
+# Privilege review
+Get-SchunkLocalAdministrator -ComputerName PC001,PC002,SERVER01
+
+# Server / incident evidence
+New-SchunkIncidentBundle -OutputPath C:\IR\INC-0042 -Profile Full
+```
+
+The operating model is deliberate: **collect first, change second, document always.**
+
+## What is actually here
 
 | Delivered | Public proof |
 |---:|---|
 | **35** | Standalone Windows administration, security, networking, identity, and diagnostic tools |
-| **14** | Installable commands in the David-branded **SchunkOps** PowerShell module |
+| **20** | Installable commands in the **SchunkOps** Windows PowerShell module |
 | **12** | Read-only Microsoft 365, Entra ID, Exchange Online, and Teams security audits |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Production-ready runbook, recovery, access, change, monitoring, and handoff templates |
-| **5** | GitHub Actions workflows enforcing parsing, analysis, tests, safety contracts, and web validation |
+| **5+** | GitHub Actions workflows enforcing parsing, analysis, tests, safety contracts, and web validation |
 | **2** | Live public systems: an Operations Center demo and a production Cloudflare community platform |
 
 [![Windows CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml)
+[![SchunkOps CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-module.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-module.yml)
 [![M365 CI](https://github.com/dschunk/microsoft-365-ops/actions/workflows/validate.yml/badge.svg)](https://github.com/dschunk/microsoft-365-ops/actions/workflows/validate.yml)
 [![FiveM CI](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/fivem-server-ops/actions/workflows/validate-powershell.yml)
-[![RAO Site CI](https://github.com/dschunk/russian-adoptees/actions/workflows/validate-site.yml/badge.svg)](https://github.com/dschunk/russian-adoptees/actions/workflows/validate-site.yml)
 
-## Featured engineering
+## Flagship: SchunkOps for Windows
 
-| Project | Engineering value |
-|---|---|
-| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Thirty-five standalone tools plus the installable **SchunkOps** module for Windows operations and incident response |
-| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twelve least-privilege audits for licensing, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
-| [Russian Adoptees Organization](https://github.com/dschunk/russian-adoptees) | A [production public platform](https://russianadoptees.com/) combining Cloudflare Workers, static assets, secure email delivery, public resources, governance records, community infrastructure, and automated validation |
-| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven production-minded tools for Windows-hosted FiveM monitoring, backup validation, configuration safety, logs, resources, ports, and alerts |
-| [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
-| [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Operational templates and the engineering philosophy behind systems another person can safely inherit |
+[Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) is the main field kit: 35 standalone scripts for grab-and-run administration plus a curated 20-command module for repeatable operations.
 
-## Production platform: Russian Adoptees Organization
+### Help desk / endpoint
 
-<table>
-  <tr>
-    <td width="72%">
-      I founded the Russian Adoptees Organization and built its public technology platform from policy documents and community needs into a production system.<br><br>
-      <strong>The platform includes:</strong> twelve public content routes, Russian citizenship and consular starting guides, official-source law updates, a public document archive, organizational governance pages, Discord and Facebook community entry points, a secure contact workflow, role-based email identities, site-wide official branding, SEO metadata, and GitHub Actions validation.<br><br>
-      The contact Worker validates origin and payload size, filters basic bot submissions, keeps private delivery addresses out of source control, and reports configuration health without exposing secrets.
-    </td>
-    <td width="28%" align="center">
-      <a href="https://russianadoptees.com/"><img src="https://raw.githubusercontent.com/dschunk/russian-adoptees/main/public/assets/rao-seal.svg" width="170" alt="Russian Adoptees Organization official seal" /></a><br>
-      <strong><a href="https://russianadoptees.com/">Visit the live platform</a></strong>
-    </td>
-  </tr>
-</table>
+- `Get-SchunkEndpointTriage`
+- `Get-SchunkDomainTrustStatus`
+- `Test-SchunkDnsClient`
+- `Get-SchunkDiskPressure`
+- `Get-SchunkLocalAdministrator`
+- `Get-SchunkPendingReboot`
 
-## Flagship workflow: Windows incident evidence
+### Windows / server operations
 
-SchunkOps turns “the server is acting weird” into a repeatable evidence collection and handoff process:
+- `Get-SchunkServerHealth`
+- `Get-SchunkServiceFailure`
+- `Get-SchunkEventTriage`
+- `Get-SchunkListeningPort`
+- `Get-SchunkScheduledTaskAudit`
+- `Get-SchunkWindowsUpdateHistory`
+
+### AD / identity
+
+- `Get-SchunkADReplicationHealth`
+- standalone AD health, stale user/computer, GPO, DC port, DNS, DHCP, and time-synchronization tools
+
+### Incident response
 
 ```powershell
 New-SchunkIncidentBundle -OutputPath C:\IR\INC-0042 -Profile Full
 ```
 
-The bundle captures structured JSON, records collector failures instead of hiding them, generates SHA-256 integrity hashes, and supports before-and-after comparison. Start with the [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md).
+The bundle writes separate JSON evidence files, records collector success/failure, timestamps the collection, generates SHA-256 integrity hashes, and can be compared against a post-remediation capture:
 
-## Flagship workflow: Microsoft 365 security evidence
+```powershell
+Compare-SchunkIncidentBundle `
+    -ReferencePath C:\IR\INC-0042 `
+    -DifferencePath C:\IR\INC-0042-After
+```
 
-The Microsoft 365 toolkit collects tenant evidence without silently changing the environment or taking ownership of authentication:
+This is the kind of output I want attached to an escalation instead of a screenshot of Task Manager and “server seems weird.”
+
+## SchunkOps Microsoft 365
+
+[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) is intentionally read-only. It expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
+
+It answers operational questions such as:
+
+- Who has privileged Entra roles?
+- Who is missing MFA registration?
+- Which enabled users are inactive?
+- Which guest accounts need review?
+- What do Conditional Access policies target?
+- Which mailboxes or inbox rules forward externally?
+- Who has access to shared mailboxes?
+- How is Teams external access configured?
+- Can the tenant be captured as a timestamped, hashed security snapshot?
 
 ```powershell
 Connect-MgGraph -Scopes 'User.Read.All','AuditLog.Read.All'
@@ -88,15 +145,31 @@ Connect-MgGraph -Scopes 'User.Read.All','AuditLog.Read.All'
     Export-Csv ./inactive-users.csv -NoTypeInformation
 ```
 
-For broader evidence collection, `Export-M365SecuritySnapshot.ps1` creates structured CSV and JSON, collection metadata, failed-report details, and SHA-256 hashes. Review the [permission map](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/PERMISSIONS.md) and [threat model](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/THREAT-MODEL.md).
+For broader evidence collection:
+
+```powershell
+./scripts/Export-M365SecuritySnapshot.ps1 -OutputDirectory C:\Evidence\M365
+```
+
+## Featured engineering
+
+| Project | Engineering value |
+|---|---|
+| [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Help desk through senior-engineer Windows operations: 35 standalone tools, 20 SchunkOps commands, field guides, evidence bundles, Pester, PSScriptAnalyzer, and Windows CI |
+| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twelve least-privilege audits for licensing, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
+| [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Operational templates and the engineering philosophy behind systems another person can safely inherit |
+| [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
+| [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven production-minded tools for Windows-hosted FiveM monitoring, backup validation, configuration safety, logs, resources, ports, and alerts |
+| [Russian Adoptees Organization](https://github.com/dschunk/russian-adoptees) | A [production public platform](https://russianadoptees.com/) combining Cloudflare Workers, secure contact delivery, public resources, governance, community infrastructure, and automated validation |
 
 ## How I engineer
 
 - **Build for the next engineer.** A system is not finished when it works only for its creator.
 - **Make failure visible.** Logs, health checks, alerts, audit trails, and partial-failure reporting are product features.
-- **Automate with restraint.** Least privilege, read-only defaults, dry runs, validation, and reversible operations matter.
+- **Read-only is a feature.** Diagnostic tooling should not quietly become remediation tooling.
+- **Return objects, not screenshots.** People can read objects; engineers can pipe them; automation can serialize them.
+- **Automate with restraint.** Least privilege, dry runs, validation, and reversible operations matter.
 - **Treat documentation as infrastructure.** The why, ownership, failure modes, and recovery path belong beside the code.
-- **Connect technical work to people.** Infrastructure matters because someone relies on it—an operator, an organization, or a community.
 
 ## Technologies
 
@@ -110,25 +183,17 @@ For broader evidence collection, `Export-M365SecuritySnapshot.ps1` creates struc
 ![VMware](https://img.shields.io/badge/VMware-607078?style=flat-square&logo=vmware&logoColor=white)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 
-## Writing, leadership, and the person behind the code
+## Beyond the toolkits
 
-I publish **Best Practices for Everyday IT**, a LinkedIn newsletter about the decisions that make systems easier to operate, secure, document, recover, and hand off.
+I also build production platforms and publish **Best Practices for Everyday IT**, a LinkedIn newsletter about the decisions that make systems easier to operate, secure, document, recover, and hand off.
 
 > If I were gone tomorrow, could another engineer understand what I built, why it exists, how it fails, and how to recover it?
 
-I was born in Smolensk, Russia, adopted as a child, and raised in New Hampshire. Technology became one of the ways I learned to build order, connection, and community. Today I am a senior IT engineer, infrastructure builder, founder, writer, gamer, podcaster, and advocate—different parts of one life, not separate identities.
+I was born in Smolensk, Russia, adopted as a child, and raised in New Hampshire. Technology became one of the ways I learned to build order, connection, and community. Today I work across infrastructure, automation, writing, open source, and community projects.
 
 Read [Best Practices for Everyday IT](https://www.linkedin.com/newsletters/best-practices-for-everyday-it-7075059974573314048/), connect on [LinkedIn](https://www.linkedin.com/in/dschunk/), or explore the broader story at [davidschunk.com](https://www.davidschunk.com/).
 
-### Start here
+---
 
-- Windows infrastructure: [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit)
-- Microsoft 365 security: [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops)
-- Production web platform: [Russian Adoptees Organization](https://github.com/dschunk/russian-adoptees)
-- Game-server operations: [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops)
-- Maintainable operations: [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there)
-
-Useful feedback, issues, pull requests, citations, and responsible reuse are welcome.
+**If one of these tools saves you time, star the repository, open an issue, improve the docs, or send a pull request.** Useful feedback and responsible reuse are welcome.
