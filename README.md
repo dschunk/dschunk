@@ -28,7 +28,7 @@ If you work in IT, start with the problem in front of you.
 | **Help desk / desktop support** | [Windows IT Toolkit — Help Desk Field Guide](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/HELPDESK.md) | Five-minute endpoint triage, DNS, domain trust, SMB, RDP, admin checks, escalation evidence |
 | **Windows sysadmin** | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | 35 standalone tools + the 20-command **SchunkOps** PowerShell module |
 | **AD / identity engineer** | [SchunkOps Windows](https://github.com/dschunk/windows-it-toolkit) | Domain trust, DC reachability, replication health, stale objects, GPO, time, DNS, local admin review |
-| **Microsoft 365 admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 12 read-only Entra, Exchange Online, Teams, licensing, MFA, guest, CA, and forwarding audits |
+| **Microsoft 365 help desk / admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 15 read-only support and audit tools for users, licenses, mailboxes, Entra, Exchange Online, Teams, MFA, guests, and CA |
 | **Incident responder** | [15-minute Windows incident triage](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/INCIDENT-RESPONSE.md) | Structured JSON evidence, collector status, timestamps, SHA-256 hashes, before/after comparison |
 | **Infrastructure / operations engineer** | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbook, recovery, monitoring, access, change, ownership, and handoff templates |
 | **Platform / dashboard builder** | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A live operations-center interface and public implementation example |
@@ -69,7 +69,7 @@ The operating model is deliberate: **collect first, change second, document alwa
 |---:|---|
 | **35** | Standalone Windows administration, security, networking, identity, and diagnostic tools |
 | **20** | Installable commands in the **SchunkOps** Windows PowerShell module |
-| **12** | Read-only Microsoft 365, Entra ID, Exchange Online, and Teams security audits |
+| **15** | Read-only Microsoft 365 support, Entra ID, Exchange Online, Teams, and security-audit tools |
 | **11** | FiveM monitoring, backup, configuration, inventory, logging, and status tools |
 | **9** | Production-ready runbook, recovery, access, change, monitoring, and handoff templates |
 | **5+** | GitHub Actions workflows enforcing parsing, analysis, tests, safety contracts, and web validation |
@@ -125,9 +125,26 @@ This is the kind of output I want attached to an escalation instead of a screens
 
 ## SchunkOps Microsoft 365
 
-[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) is intentionally read-only. It expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
+[SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) now covers first-contact support as well as tenant-wide audit work. It is intentionally read-only, expects the operator to authenticate through Microsoft's supported modules, documents required permissions, returns objects, and does not silently request broader scopes or modify tenant state.
 
-It answers operational questions such as:
+### First-contact support
+
+```powershell
+# User cannot sign in / account looks wrong
+./scripts/Get-M365UserSupportSnapshot.ps1 -UserPrincipalName alex@contoso.com
+
+# User is missing an app / license
+./scripts/Get-M365UserLicenseAssignment.ps1 -UserPrincipalName alex@contoso.com
+
+# Outlook / mailbox issue
+./scripts/Get-ExchangeMailboxSupportSnapshot.ps1 -Identity alex@contoso.com
+```
+
+The [Microsoft 365 Help Desk Field Guide](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/HELPDESK.md) covers sign-in, licenses, mailbox issues, forwarding, shared mailboxes, Teams external access, guests, incident evidence, and what to include before escalation.
+
+### Tenant / security evidence
+
+It also answers operational questions such as:
 
 - Who has privileged Entra roles?
 - Who is missing MFA registration?
@@ -140,14 +157,6 @@ It answers operational questions such as:
 - Can the tenant be captured as a timestamped, hashed security snapshot?
 
 ```powershell
-Connect-MgGraph -Scopes 'User.Read.All','AuditLog.Read.All'
-./scripts/Get-M365InactiveUser.ps1 -InactiveDays 90 |
-    Export-Csv ./inactive-users.csv -NoTypeInformation
-```
-
-For broader evidence collection:
-
-```powershell
 ./scripts/Export-M365SecuritySnapshot.ps1 -OutputDirectory C:\Evidence\M365
 ```
 
@@ -156,7 +165,7 @@ For broader evidence collection:
 | Project | Engineering value |
 |---|---|
 | [Windows IT Toolkit](https://github.com/dschunk/windows-it-toolkit) | Help desk through senior-engineer Windows operations: 35 standalone tools, 20 SchunkOps commands, field guides, evidence bundles, Pester, PSScriptAnalyzer, and Windows CI |
-| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twelve least-privilege audits for licensing, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
+| [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Fifteen read-only support and audit tools for user triage, licensing, mailboxes, MFA, privileged roles, guests, Conditional Access, forwarding, permissions, domains, and external access |
 | [Build It Like You Won't Be There](https://github.com/dschunk/build-it-like-you-wont-be-there) | Operational templates and the engineering philosophy behind systems another person can safely inherit |
 | [Infrastructure Dashboard](https://github.com/dschunk/infrastructure-dashboard) | A [live responsive Operations Center](https://dschunk.github.io/infrastructure-dashboard/) built with semantic HTML, CSS, and JavaScript |
 | [FiveM Server Ops](https://github.com/dschunk/fivem-server-ops) | Eleven production-minded tools for Windows-hosted FiveM monitoring, backup validation, configuration safety, logs, resources, ports, and alerts |
