@@ -31,6 +31,7 @@ The engineering model across these projects is simple:
 | Area | Project | What it is |
 |---|---|---|
 | **Windows / AD / infrastructure** | [Windows IT Toolkit / SchunkOps](https://github.com/dschunk/windows-it-toolkit) | 35 standalone PowerShell tools plus a 28-command module for endpoint, server, AD, Kerberos, GPO, DNS/DHCP, certificates, clusters, vSphere, and incident evidence |
+| **Windows lab / file services** | [Windows File Server field guide](https://everydayittips.com/guides/windows-file-server-dfs-fsrm-vss/) | A validated enterprise-style lab build covering a dedicated Windows Server file server, AGDLP, NTFS/SMB, DFS Namespace, GPO drive maps, FSRM quotas, VSS/Previous Versions, routed management, and AD DNS |
 | **Microsoft 365 / Entra / Exchange** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | 20 read-only support and engineering tools for identities, licenses, sign-ins, service health, mailboxes, privileged access, Conditional Access, guests, Teams, and tenant evidence |
 | **Practical IT writing** | [Everyday IT Tips](https://everydayittips.com/) | Searchable field guides for Windows, Active Directory, Windows Server, security, infrastructure, troubleshooting, and IT operations |
 | **Operational discipline** | [Build It Like You Won't Be There Tomorrow](https://github.com/dschunk/build-it-like-you-wont-be-there) | Runbook, recovery, access, change, monitoring, handoff, backup, and decommissioning templates |
@@ -72,7 +73,8 @@ The publication is built around practical, repeatable work rather than vendor ma
 - Active Directory and Group Policy
 - DNS and DHCP
 - RDP and Windows troubleshooting
-- SMB, NTFS, storage, and Hyper-V
+- SMB, NTFS, DFS Namespace, FSRM, and VSS / Previous Versions
+- storage, virtualization, routed management, and recovery
 - BitLocker, Windows LAPS, and firewall administration
 - backup and restore testing
 - documentation and operational handoff
