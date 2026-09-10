@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/dschunk/davidschunk.com/main/public/david-schunk-portrait.svg" alt="David Schunk" width="180" />
+</p>
+
+<p align="center">
   <strong>Windows • Microsoft 365 • Identity • Infrastructure • Automation • Operations</strong>
 </p>
 
@@ -14,6 +18,7 @@
   <a href="https://www.davidschunk.com/"><img src="https://img.shields.io/badge/davidschunk.com-0B1F3A?style=for-the-badge&logo=googlechrome&logoColor=white" alt="DavidSchunk.com" /></a>
   <a href="https://everydayittips.com/"><img src="https://img.shields.io/badge/Everyday%20IT%20Tips-1F5C42?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Everyday IT Tips" /></a>
   <a href="https://www.linkedin.com/in/dschunk/"><img src="https://img.shields.io/badge/LinkedIn-David%20Schunk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://meritpages.com/DavidSchunk"><img src="https://img.shields.io/badge/Merit-Academic%20%26%20Career%20Record-2F3B36?style=for-the-badge" alt="David Schunk on Merit" /></a>
 </p>
 
 > **Personal-project boundary:** Unless a repository explicitly states otherwise, the work showcased here is maintained as independent personal, open-source, editorial, or community work. No affiliation with or endorsement by any current or former employer is implied. These repositories are not intended to contain employer confidential or proprietary information, non-public internal configurations, customer data, credentials, or employer work product.
@@ -96,11 +101,13 @@ The LinkedIn newsletter remains a distribution channel; the website is the perma
 
 `PowerShell` · `Windows Server` · `Active Directory` · `Group Policy` · `Microsoft 365` · `Microsoft Entra` · `Exchange Online` · `.NET` · `VMware` · `Cloudflare Workers` · `GitHub Actions`
 
-## Beyond the toolkits
+## About David
 
-I work across infrastructure, automation, writing, open source, and community projects. I was born in Smolensk, Russia, adopted as a child, and raised in New Hampshire.
+I'm David Schunk, an IT Engineer and Champlain College Class of 2017 graduate working across infrastructure, systems administration, automation, networking, virtualization, cloud technologies, and cybersecurity. I was born in Smolensk, Russia, adopted as a child, and raised in New Hampshire.
 
-The broader portfolio is at [davidschunk.com](https://www.davidschunk.com/). Technical writing lives at [Everyday IT Tips](https://everydayittips.com/). I’m also on [LinkedIn](https://www.linkedin.com/in/dschunk/).
+Outside of day-to-day IT work, I publish [Everyday IT Tips](https://everydayittips.com/), maintain hands-on infrastructure labs and independent projects, and host [Voice of Adoptees](https://voiceofadoptees.com/).
+
+My broader portfolio is at [davidschunk.com](https://www.davidschunk.com/). My academic and career record is on [Merit](https://meritpages.com/DavidSchunk), including Champlain College-verified recognition from 2014. I’m also on [LinkedIn](https://www.linkedin.com/in/dschunk/).
 
 ---
 
