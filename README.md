@@ -3,10 +3,6 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dschunk/davidschunk.com/main/public/david-schunk-portrait.svg" alt="David Schunk" width="180" />
-</p>
-
-<p align="center">
   <strong>Windows • Microsoft 365 • Identity • Infrastructure • Automation • Operations</strong>
 </p>
 
