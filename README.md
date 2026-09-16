@@ -78,7 +78,12 @@ The publication is built around practical, repeatable work rather than vendor ma
 - storage, virtualization, routed management, and recovery
 - BitLocker, Windows LAPS, and firewall administration
 - backup and restore testing
+- PowerShell operations and disk-space triage
+- Windows network troubleshooting with built-in tools
+- Windows Server post-build baselines and operational handoff
 - documentation and operational handoff
+
+**New field guides:** [Windows Server post-build checklist](https://everydayittips.com/guides/windows-server-post-build-checklist/) · [Windows network troubleshooting toolkit](https://everydayittips.com/guides/windows-network-troubleshooting-toolkit/) · [PowerShell disk-space triage](https://everydayittips.com/guides/powershell-disk-space-triage/)
 
 Start with the [Windows Administration Hub](https://everydayittips.com/topics/windows/) or browse [all field guides](https://everydayittips.com/guides/).
 
