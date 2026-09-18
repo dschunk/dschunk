@@ -27,6 +27,14 @@ The engineering model across these projects is simple:
 
 **Collect first. Change second. Document always.**
 
+## Featured research
+
+### [Checks and Balances for Artificial Intelligence](https://www.davidschunk.com/research/ai-governance)
+
+A risk-tiered framework for AI safety, accountability, public trust, and innovation. The paper argues for **rights at the user layer, controls at the deployment layer, evidence at the audit layer, and stronger safeguards at the frontier layer**—with obligations scaling to capability and consequence rather than treating every AI system the same.
+
+[Read the canonical paper](https://www.davidschunk.com/research/ai-governance) · [Read the source-controlled research copy](./research/checks-and-balances-for-artificial-intelligence.md) · [Practitioner version on Everyday IT Tips](https://everydayittips.com/articles/ai-governance-checks-and-balances/)
+
 ## Start here
 
 | Area | Project | What it is |
