@@ -109,6 +109,18 @@ For the core engineering repositories, I try to make the quality signals visible
 
 Read the full [Engineering Standards](docs/ENGINEERING-STANDARDS.md).
 
+## Follow active work
+
+If you want to come back for what changed rather than reread the profile:
+
+- **[SchunkOps releases](https://github.com/dschunk/windows-it-toolkit/releases)** — versioned Windows operations releases and release notes.
+- **[Windows IT Toolkit roadmap](https://github.com/dschunk/windows-it-toolkit/blob/main/ROADMAP.md)** — planned improvements and areas under active development.
+- **[Microsoft 365 Ops roadmap](https://github.com/dschunk/microsoft-365-ops/blob/main/ROADMAP.md)** — planned tenant, identity, Exchange, and security work.
+- **[Everyday IT Tips](https://everydayittips.com/)** — the permanent stream of practical field guides and technical writing.
+- **[GitHub profile repository map](docs/REPOSITORY-MAP.md)** — the maintained index when new public projects are added.
+
+For code projects, use **Releases** when you need stable version history and **Watch** when you want GitHub notifications for repository activity.
+
 ## Practical IT writing
 
 I publish [Everyday IT Tips](https://everydayittips.com/) as the permanent home for field guides on:
