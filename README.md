@@ -39,13 +39,13 @@
 
 [![Windows CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-powershell.yml)
 [![Module CI](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-module.yml/badge.svg)](https://github.com/dschunk/windows-it-toolkit/actions/workflows/validate-module.yml)
-[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/SchunkOps?label=SchunkOps&logo=powershell)](https://www.powershellgallery.com/packages/SchunkOps)
+[![Latest release](https://img.shields.io/github/v/release/dschunk/windows-it-toolkit?label=SchunkOps)](https://github.com/dschunk/windows-it-toolkit/releases/latest)
 
 A Windows operations toolkit built around structured evidence, safe defaults, and reusable PowerShell objects.
 
 ```powershell
-Install-Module SchunkOps -Scope CurrentUser
-Import-Module SchunkOps
+git clone https://github.com/dschunk/windows-it-toolkit.git
+Import-Module .\windows-it-toolkit\module\SchunkOps\SchunkOps.psd1
 
 # First look at a Windows machine
 Get-SchunkEndpointTriage
