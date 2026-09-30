@@ -1,0 +1,57 @@
+name: Website health check
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    name: ${{ matrix.site }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - site: DavidSchunk.com
+            url: https://www.davidschunk.com/
+          - site: Everyday IT Tips
+            url: https://everydayittips.com/
+          - site: Russian Adoptees Organization
+            url: https://russianadoptees.com/
+          - site: Voice of Adoptees
+            url: https://voiceofadoptees.com/
+          - site: DoTheyPass
+            url: https://dotheypass.com/
+          - site: BHS 2013
+            url: https://bhs2013.com/
+          - site: Capital State RP
+            url: https://capitalstaterp.com/
+          - site: Capital State Admin
+            url: https://admin.capitalstaterp.com/
+
+    steps:
+      - name: Check public endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          url="${{ matrix.url }}"
+          echo "Checking $url"
+
+          code="$(
+            curl               --silent               --show-error               --output /dev/null               --write-out "%{http_code}"               --connect-timeout 10               --max-time 25               --retry 2               --retry-delay 2               --retry-all-errors               --user-agent "SchunkOps-SiteHealth/1.0"               "$url" || true
+          )"
+
+          echo "HTTP status: $code"
+
+          if [[ ! "$code" =~ ^[23][0-9][0-9]$ ]]; then
+            echo "::error::Health check failed for ${{ matrix.site }} ($url): HTTP $code"
+            exit 1
+          fi
+
+          echo "${{ matrix.site }} is reachable."
