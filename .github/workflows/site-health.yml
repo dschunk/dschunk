@@ -1,6 +1,9 @@
 name: Website health check
 
 on:
+  push:
+    paths:
+      - ".github/workflows/site-health.yml"
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
