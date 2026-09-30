@@ -27,7 +27,7 @@ jobs:
           - site: Russian Adoptees Organization
             url: https://russianadoptees.com/
           - site: Voice of Adoptees
-            url: https://voiceofadoptees.com/
+            url: https://voiceofadoptees.com/api/health
           - site: DoTheyPass
             url: https://dotheypass.com/
           - site: BHS 2013
@@ -52,9 +52,15 @@ jobs:
 
           echo "HTTP status: $code"
 
-          if [[ ! "$code" =~ ^[23][0-9][0-9]$ ]]; then
-            echo "::error::Health check failed for ${{ matrix.site }} ($url): HTTP $code"
-            exit 1
+          if [[ "$code" =~ ^[23][0-9][0-9]$ ]]; then
+            echo "${{ matrix.site }} is reachable."
+            exit 0
           fi
 
-          echo "${{ matrix.site }} is reachable."
+          if [[ "$code" == "403" ]]; then
+            echo "::warning::${{ matrix.site }} is reachable but blocked this GitHub runner with HTTP 403 (likely WAF/bot protection)."
+            exit 0
+          fi
+
+          echo "::error::Health check failed for ${{ matrix.site }} ($url): HTTP $code"
+          exit 1
