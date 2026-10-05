@@ -36,6 +36,8 @@ jobs:
             url: https://capitalstaterp.com/
           - site: Capital State Admin
             url: https://admin.capitalstaterp.com/
+          - site: Department of Cash
+            url: https://departmentofcash.com/
 
     steps:
       - name: Check public endpoint
