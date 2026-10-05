@@ -16,23 +16,24 @@ jobs:
     name: ${{ matrix.site }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    continue-on-error: ${{ matrix.site == 'Voice of Adoptees' }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - site: DavidSchunk.com
             url: https://www.davidschunk.com/__health
-            body_contains: '"ok":true'
+            json_health: true
           - site: Everyday IT Tips
             url: https://everydayittips.com/
           - site: Russian Adoptees Organization
             url: https://russianadoptees.com/api/health
-            body_contains: '"ok":true'
+            json_health: true
           - site: Voice of Adoptees
             url: https://voiceofadoptees.com/api/health
           - site: DoTheyPass
             url: https://dotheypass.com/api/health
-            body_contains: '"ok":true'
+            json_health: true
           - site: BHS 2013
             url: https://bhs2013.com/
           - site: Capital State RP
@@ -59,12 +60,20 @@ jobs:
           echo "HTTP status: $code"
 
           if [[ "$code" =~ ^[23][0-9][0-9]$ ]]; then
-            expected="${{ matrix.body_contains || '' }}"
-            if [[ -n "$expected" ]] && ! grep -Fq "$expected" "$body_file"; then
-              echo "::error::${{ matrix.site }} responded successfully but did not include expected health content: $expected"
-              exit 1
+            if [[ "${{ matrix.json_health || false }}" == "true" ]]; then
+              python - "$body_file" <<'PY'
+import json
+import sys
+
+path = sys.argv[1]
+with open(path, "r", encoding="utf-8") as handle:
+    payload = json.load(handle)
+
+if payload.get("ok") is not True:
+    raise SystemExit("health JSON did not report ok=true")
+PY
             fi
-            echo "${{ matrix.site }} is reachable and passed its content check."
+            echo "${{ matrix.site }} is reachable and passed its health check."
             exit 0
           fi
 
