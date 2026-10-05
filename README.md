@@ -143,6 +143,12 @@ A risk-tiered governance framework focused on human agency, accountability, evid
 
 [Canonical paper](https://www.davidschunk.com/research/ai-governance) · [Source-controlled copy](research/checks-and-balances-for-artificial-intelligence.md)
 
+## Selected web projects
+
+- [Department of Cash](https://departmentofcash.com/) — a practical personal-finance interface focused on recurring bills, cash flow, and making everyday money management easier to understand.
+- [DoTheyPass](https://dotheypass.com/) — a privacy-conscious public-source identity-consistency project with explicit uncertainty, provenance, and safety controls.
+- [BHS 2013](https://bhs2013.com/) — an alumni portal project for the Bedford High School Class of 2013.
+
 ## Community work
 
 Technology is not the only thing I work on.
