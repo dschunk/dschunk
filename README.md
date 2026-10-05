@@ -129,6 +129,7 @@ I publish [Everyday IT Tips](https://everydayittips.com/) as the permanent home 
 
 Recent starting points:
 
+- [Before you reboot a Windows Server, capture this first](https://everydayittips.com/articles/before-you-reboot-capture-evidence/)
 - [Windows Server post-build checklist](https://everydayittips.com/guides/windows-server-post-build-checklist/)
 - [Windows network troubleshooting toolkit](https://everydayittips.com/guides/windows-network-troubleshooting-toolkit/)
 - [PowerShell disk-space triage](https://everydayittips.com/guides/powershell-disk-space-triage/)
