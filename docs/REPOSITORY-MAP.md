@@ -66,6 +66,10 @@ Public website and community infrastructure for adoptees from Russia and the for
 
 ## Personal / experimental projects
 
+### [Department of Cash](https://departmentofcash.com/)
+
+A personal-finance web project focused on making recurring bills, cash flow, and everyday money organization easier to understand and manage.
+
 The profile also includes smaller web, community, and personal projects. Those repositories are useful as examples of shipping, deployment, product experimentation, and maintaining real sites, but the repositories above are the best starting points for the engineering body of work.
 
 ## Where to start
