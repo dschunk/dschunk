@@ -21,15 +21,18 @@ jobs:
       matrix:
         include:
           - site: DavidSchunk.com
-            url: https://www.davidschunk.com/
+            url: https://www.davidschunk.com/__health
+            body_contains: '"ok":true'
           - site: Everyday IT Tips
             url: https://everydayittips.com/
           - site: Russian Adoptees Organization
-            url: https://russianadoptees.com/
+            url: https://russianadoptees.com/api/health
+            body_contains: '"ok":true'
           - site: Voice of Adoptees
             url: https://voiceofadoptees.com/api/health
           - site: DoTheyPass
-            url: https://dotheypass.com/
+            url: https://dotheypass.com/api/health
+            body_contains: '"ok":true'
           - site: BHS 2013
             url: https://bhs2013.com/
           - site: Capital State RP
@@ -48,14 +51,20 @@ jobs:
           url="${{ matrix.url }}"
           echo "Checking $url"
 
+          body_file="$(mktemp)"
           code="$(
-            curl               --silent               --show-error               --output /dev/null               --write-out "%{http_code}"               --connect-timeout 10               --max-time 25               --retry 2               --retry-delay 2               --retry-all-errors               --user-agent "SchunkOps-SiteHealth/1.0"               "$url" || true
+            curl               --silent               --show-error               --output "$body_file"               --write-out "%{http_code}"               --connect-timeout 10               --max-time 25               --retry 2               --retry-delay 2               --retry-all-errors               --user-agent "SchunkOps-SiteHealth/1.0"               "$url" || true
           )"
 
           echo "HTTP status: $code"
 
           if [[ "$code" =~ ^[23][0-9][0-9]$ ]]; then
-            echo "${{ matrix.site }} is reachable."
+            expected="${{ matrix.body_contains || '' }}"
+            if [[ -n "$expected" ]] && ! grep -Fq "$expected" "$body_file"; then
+              echo "::error::${{ matrix.site }} responded successfully but did not include expected health content: $expected"
+              exit 1
+            fi
+            echo "${{ matrix.site }} is reachable and passed its content check."
             exit 0
           fi
 
