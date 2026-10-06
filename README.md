@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="https://www.davidschunk.com/">Portfolio</a> ·
+  <a href="https://www.davidschunk.com/writing">Writing & Reference</a> ·
   <a href="https://everydayittips.com/">Everyday IT Tips</a> ·
   <a href="https://www.linkedin.com/in/dschunk/">LinkedIn</a> ·
   <a href="https://meritpages.com/DavidSchunk">Academic & career record</a>
@@ -26,6 +27,7 @@
 | **New to IT or PowerShell** | [Learning Paths](docs/LEARNING-PATHS.md) | Safe starting points, foundational concepts, guided labs, and a progression from first-line support to systems engineering |
 | **Help desk / desktop support** | [SchunkOps Quick Start](https://github.com/dschunk/windows-it-toolkit/blob/main/docs/QUICKSTART.md) | Endpoint triage, DNS, trust, RDP, SMB, reboot state, event evidence, and escalation-ready output |
 | **Windows / infrastructure engineer** | [Windows IT Toolkit / SchunkOps](https://github.com/dschunk/windows-it-toolkit) | Read-only-first diagnostics for Windows Server, AD, GPO, Kerberos, DNS/DHCP, certificates, clusters, vSphere, and incident evidence |
+| **Need a fast technical reference** | [IT Dictionary & Reference Library](https://everydayittips.com/dictionary/) | Practical definitions, ports, DNS records, PowerShell commands, AD troubleshooting commands, and Windows Server role references |
 | **Microsoft 365 / Entra admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twenty read-only tools for identity, licensing, sign-ins, mailboxes, service health, Conditional Access, Teams, and security review |
 | **Instructor / professor** | [Teaching & Classroom Guide](docs/CLASSROOM.md) | Assignment ideas, lab sequences, learning objectives, discussion prompts, and ways to use the repositories safely in class |
 | **Engineering leader / architect** | [Engineering Standards](docs/ENGINEERING-STANDARDS.md) | Operational design principles, handoff expectations, evidence-first troubleshooting, recovery, change, and maintainability standards |
@@ -69,6 +71,19 @@ New-SchunkIncidentBundle -OutputPath C:\IR\INC-0042 -Profile Full
 Read-only-first PowerShell tooling for Microsoft 365 and Entra operations: identities, licenses, sign-ins, service health, privileged access, mailbox delegation, forwarding, transport rules, Conditional Access, Teams, guests, and tenant evidence.
 
 **Start by role:** [Help Desk](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/HELPDESK.md) · [Operator Checklist](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/OPERATOR-CHECKLIST.md) · [Senior Admin](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/SENIOR-ADMIN.md) · [Threat Model](https://github.com/dschunk/microsoft-365-ops/blob/main/docs/THREAT-MODEL.md)
+
+### Everyday IT Tips Reference Library
+
+A growing professional reference library for administrators, engineers, support staff, students, and instructors.
+
+- [IT Dictionary](https://everydayittips.com/dictionary/) — practical definitions with operational context
+- [Common ports and protocols](https://everydayittips.com/guides/common-ports-protocols-reference/) — TCP/UDP reference with troubleshooting notes
+- [PowerShell command reference](https://everydayittips.com/guides/powershell-windows-admin-command-reference/) — Windows administration by troubleshooting question
+- [Active Directory troubleshooting commands](https://everydayittips.com/guides/active-directory-troubleshooting-command-reference/) — dcdiag, repadmin, nltest, gpresult, klist, w32tm, and AD PowerShell
+- [DNS record types](https://everydayittips.com/guides/dns-record-types-reference/) — A, AAAA, CNAME, MX, TXT, SRV, PTR, NS, SOA, CAA, and verification
+- [Windows Server roles and features](https://everydayittips.com/guides/windows-server-roles-features-reference/) — role purpose, dependencies, inventory, and validation
+
+The full writing and research index also lives at [davidschunk.com/writing](https://www.davidschunk.com/writing).
 
 ### Build It Like You Won't Be There Tomorrow
 
@@ -129,11 +144,12 @@ I publish [Everyday IT Tips](https://everydayittips.com/) as the permanent home 
 
 Recent starting points:
 
+- [IT Dictionary](https://everydayittips.com/dictionary/)
+- [Common ports and protocols IT professionals should know](https://everydayittips.com/guides/common-ports-protocols-reference/)
+- [PowerShell command reference for Windows administrators](https://everydayittips.com/guides/powershell-windows-admin-command-reference/)
+- [Active Directory troubleshooting command reference](https://everydayittips.com/guides/active-directory-troubleshooting-command-reference/)
+- [DNS record types IT professionals should know](https://everydayittips.com/guides/dns-record-types-reference/)
 - [Before you reboot a Windows Server, capture this first](https://everydayittips.com/articles/before-you-reboot-capture-evidence/)
-- [Windows Server post-build checklist](https://everydayittips.com/guides/windows-server-post-build-checklist/)
-- [Windows network troubleshooting toolkit](https://everydayittips.com/guides/windows-network-troubleshooting-toolkit/)
-- [PowerShell disk-space triage](https://everydayittips.com/guides/powershell-disk-space-triage/)
-- [Windows file server: DFS, FSRM, VSS, permissions, and recovery](https://everydayittips.com/guides/windows-file-server-dfs-fsrm-vss/)
 
 ## Research
 
@@ -145,9 +161,13 @@ A risk-tiered governance framework focused on human agency, accountability, evid
 
 ## Selected web projects
 
+These are smaller than the core engineering repositories, but they show the other side of the work: product thinking, deployment, UI, public-facing operations, and maintaining real sites.
+
 - [Department of Cash](https://departmentofcash.com/) — a practical personal-finance interface focused on recurring bills, cash flow, and making everyday money management easier to understand.
 - [DoTheyPass](https://dotheypass.com/) — a privacy-conscious public-source identity-consistency project with explicit uncertainty, provenance, and safety controls.
 - [BHS 2013](https://bhs2013.com/) — an alumni portal project for the Bedford High School Class of 2013.
+- [DavidSchunk.com](https://www.davidschunk.com/) — personal publishing, research, technical writing, project index, and collaboration hub.
+
 
 ## Community work
 
@@ -162,7 +182,7 @@ I'm David Schunk, a Senior IT Engineer and Champlain College Class of 2017 gradu
 
 I care about a specific kind of engineering: **systems that are understandable under pressure, recoverable after failure, and maintainable by someone other than the person who built them.**
 
-That same idea drives the tools, documentation, field guides, and operational templates in this profile.
+That same idea drives the tools, documentation, field guides, reference library, research, and operational templates in this profile.
 
 <p align="center">
   <a href="https://www.davidschunk.com/">davidschunk.com</a> ·
