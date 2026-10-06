@@ -48,7 +48,11 @@ Source for the personal website and research pages.
 
 ### [Everyday IT Tips](https://everydayittips.com/)
 
-The permanent publication and field-guide archive for practical Windows, infrastructure, troubleshooting, security, and operations writing.
+The permanent publication, professional IT dictionary, reference library, and field-guide archive for practical Windows, infrastructure, troubleshooting, security, and operations material.
+
+### [Writing & Reference Hub](https://www.davidschunk.com/writing)
+
+A curated index of technical references, essays, and independent research published across DavidSchunk.com and Everyday IT Tips.
 
 ### [Checks and Balances for Artificial Intelligence](https://www.davidschunk.com/research/ai-governance)
 
@@ -70,6 +74,14 @@ Public website and community infrastructure for adoptees from Russia and the for
 
 A personal-finance web project focused on making recurring bills, cash flow, and everyday money organization easier to understand and manage.
 
+### [DoTheyPass](https://dotheypass.com/)
+
+A privacy-conscious public-source identity-consistency project emphasizing provenance, uncertainty, and explicit safety controls.
+
+### [BHS 2013](https://bhs2013.com/)
+
+An alumni portal project for the Bedford High School Class of 2013.
+
 The profile also includes smaller web, community, and personal projects. Those repositories are useful as examples of shipping, deployment, product experimentation, and maintaining real sites, but the repositories above are the best starting points for the engineering body of work.
 
 ## Where to start
@@ -80,3 +92,5 @@ The profile also includes smaller web, community, and personal projects. Those r
 - **I teach IT:** [Teaching & Classroom Guide](CLASSROOM.md)
 - **I lead an engineering team:** [Engineering Standards](ENGINEERING-STANDARDS.md)
 - **I want step-by-step articles:** [Everyday IT Tips](https://everydayittips.com/)
+- **I need a quick IT definition or reference:** [IT Dictionary](https://everydayittips.com/dictionary/)
+- **I want the writing and research index:** [Writing & Reference](https://www.davidschunk.com/writing)
