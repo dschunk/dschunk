@@ -35,6 +35,12 @@
 
 > **Core principle:** Build systems the next engineer can inherit.
 
+## Latest field guides and independent writing
+
+- [Active Directory time sync and Kerberos clock skew](https://everydayittips.com/guides/active-directory-time-sync-kerberos/) — inspect the Windows Time hierarchy and establish evidence before changing clocks.
+- [Windows scheduled-task failure triage](https://everydayittips.com/guides/windows-scheduled-task-failure-triage/) — investigate execution identities, task history, working directories, and actual job outcomes.
+- [Between Russia and Ukraine: A Case for Peace with Guarantees](https://www.davidschunk.com/writing/between-russia-and-ukraine) — independent personal essay on heritage, diplomacy, Ukrainian sovereignty, and European security.
+
 ## Flagship resources
 
 ### Windows IT Toolkit / SchunkOps
