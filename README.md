@@ -37,6 +37,9 @@
 
 ## Latest field guides and independent writing
 
+- [AI Is an Operating Model, Not a Purchase Order](https://www.davidschunk.com/writing/enterprise-ai-strategy) — an independent 180-day plan for enterprise AI governance, adoption, security, and measurable outcomes across departments.
+- [Enterprise AI pilot checklist](https://everydayittips.com/guides/enterprise-ai-pilot-checklist/) — scope, secure, evaluate, and support a real AI workflow.
+- [AI connector security and prompt injection](https://everydayittips.com/guides/ai-prompt-injection-connector-security/) — access boundaries, adversarial tests, approvals, and operational monitoring.
 - [Active Directory time sync and Kerberos clock skew](https://everydayittips.com/guides/active-directory-time-sync-kerberos/) — inspect the Windows Time hierarchy and establish evidence before changing clocks.
 - [Windows scheduled-task failure triage](https://everydayittips.com/guides/windows-scheduled-task-failure-triage/) — investigate execution identities, task history, working directories, and actual job outcomes.
 - [Between Russia and Ukraine: A Case for Peace with Guarantees](https://www.davidschunk.com/writing/between-russia-and-ukraine) — independent personal essay on heritage, diplomacy, Ukrainian sovereignty, and European security.
