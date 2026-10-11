@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="https://www.davidschunk.com/">Portfolio</a> ·
+  <a href="https://www.davidschunk.com/hire">IT Consulting & Project Inquiries</a> ·
   <a href="https://www.davidschunk.com/writing">Writing & Reference</a> ·
   <a href="https://everydayittips.com/">Everyday IT Tips</a> ·
   <a href="https://www.linkedin.com/in/dschunk/">LinkedIn</a> ·
@@ -31,6 +32,7 @@
 | **Microsoft 365 / Entra admin** | [SchunkOps Microsoft 365](https://github.com/dschunk/microsoft-365-ops) | Twenty read-only tools for identity, licensing, sign-ins, mailboxes, service health, Conditional Access, Teams, and security review |
 | **Instructor / professor** | [Teaching & Classroom Guide](docs/CLASSROOM.md) | Assignment ideas, lab sequences, learning objectives, discussion prompts, and ways to use the repositories safely in class |
 | **Engineering leader / architect** | [Engineering Standards](docs/ENGINEERING-STANDARDS.md) | Operational design principles, handoff expectations, evidence-first troubleshooting, recovery, change, and maintainability standards |
+| **Need Windows Server or Active Directory help?** | [Independent IT consulting](https://www.davidschunk.com/hire) | Discuss Windows Server, identity, PowerShell automation, troubleshooting, infrastructure and operational documentation projects, subject to availability and applicable approvals |
 | **Looking for the whole portfolio** | [Repository Map](docs/REPOSITORY-MAP.md) | A curated index of technical, writing, research, community, and case-study projects |
 
 > **Core principle:** Build systems the next engineer can inherit.
