@@ -16,7 +16,6 @@ jobs:
     name: ${{ matrix.site }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
-    continue-on-error: ${{ matrix.site == 'Voice of Adoptees' }}
     strategy:
       fail-fast: false
       matrix:
@@ -34,8 +33,6 @@ jobs:
             url: https://russianadoptees.com/api/health
             json_health: true
             required_true_fields: caseStoreConfigured,emailBindingConfigured,contactDestinationConfigured,orphanageStaffDestinationConfigured
-          - site: Voice of Adoptees
-            url: https://voiceofadoptees.com/api/health
           - site: DoTheyPass
             url: https://dotheypass.com/
           - site: DoTheyPass Health
@@ -49,6 +46,8 @@ jobs:
             url: https://admin.capitalstaterp.com/
           - site: Department of Cash
             url: https://departmentofcash.com/
+          - site: Yua the Cat
+            url: https://yuathecat.com/
 
     steps:
       - name: Check public endpoint
