@@ -60,12 +60,12 @@ jobs:
 
           body_file="$(mktemp)"
           code="$(
-            curl               --silent               --show-error               --output "$body_file"               --write-out "%{http_code}"               --connect-timeout 10               --max-time 25               --retry 2               --retry-delay 2               --retry-all-errors               --user-agent "SchunkOps-SiteHealth/1.0"               "$url" || true
+            curl               --silent               --show-error               --output "$body_file"               --write-out "%{http_code}"               --connect-timeout 10               --max-time 25               --location               --max-redirs 5               --retry 2               --retry-delay 2               --retry-all-errors               --user-agent "SchunkOps-SiteHealth/1.0"               "$url" || true
           )"
 
           echo "HTTP status: $code"
 
-          if [[ "$code" =~ ^[23][0-9][0-9]$ ]]; then
+          if [[ "$code" =~ ^2[0-9][0-9]$ ]]; then
             if [[ "${{ matrix.json_health || false }}" == "true" ]]; then
               python -c 'import json,sys; payload=json.load(open(sys.argv[1], encoding="utf-8")); raise SystemExit(0 if payload.get("ok") is True else "health JSON did not report ok=true")' "$body_file"
               required_fields="${{ matrix.required_true_fields || '' }}"
@@ -74,13 +74,16 @@ jobs:
               fi
             fi
             echo "${{ matrix.site }} is reachable and passed its health check."
+            echo "✅ **${{ matrix.site }}** — HTTP $code (verified response)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
           if [[ "$code" == "403" ]]; then
-            echo "::warning::${{ matrix.site }} is reachable but blocked this GitHub runner with HTTP 403 (likely WAF/bot protection)."
+            echo "::warning::${{ matrix.site }} returned HTTP 403 to the monitoring runner; health is NOT verified (possibly WAF/bot protection)."
+            echo "⚠️ **${{ matrix.site }}** — HTTP 403; health unverified (investigate WAF/bot handling)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
+          echo "❌ **${{ matrix.site }}** — HTTP $code; probe failed" >> "$GITHUB_STEP_SUMMARY"
           echo "::error::Health check failed for ${{ matrix.site }} ($url): HTTP $code"
           exit 1
