@@ -21,7 +21,7 @@
 
 ---
 
-## Choose your path
+## Find what you need
 
 | If you are... | Start here | What you will find |
 |---|---|---|
@@ -35,16 +35,31 @@
 | **Need Windows Server or Active Directory help?** | [Independent IT consulting](https://www.davidschunk.com/hire) | Discuss Windows Server, identity, PowerShell automation, troubleshooting, infrastructure and operational documentation projects, subject to availability and applicable approvals |
 | **Looking for the whole portfolio** | [Repository Map](docs/REPOSITORY-MAP.md) | A curated index of technical, writing, research, community, and case-study projects |
 
-> **Core principle:** Build systems the next engineer can inherit.
+> **Operating principle:** Collect evidence first. Make the fix repeatable. Leave the next engineer a map.
 
-## Latest field guides and independent writing
+### Quick portfolio tour
 
+| Explore | What you can use today |
+|---|---|
+| **[SchunkOps for Windows](https://github.com/dschunk/windows-it-toolkit)** | A PowerShell toolkit for Windows and Active Directory operations, triage and incident evidence |
+| **[SchunkOps for Microsoft 365](https://github.com/dschunk/microsoft-365-ops)** | Read-only-first Entra, Exchange Online and Microsoft 365 operational diagnostics |
+| **[Everyday IT Tips](https://everydayittips.com/)** | Published field guides, a searchable technical dictionary and practical reference material |
+| **[Professional portfolio](https://www.davidschunk.com/)** | Selected projects, independent writing, background and contact information |
+
+## Fresh from the workbench
+
+- **[Troubleshoot Slow Windows Domain Logons and Group Policy Processing](https://everydayittips.com/guides/windows-slow-domain-logon-gpo-diagnostics/)** — correlate Group Policy events, domain controller discovery and profile evidence before changing a production workstation.
+- **[Troubleshoot Windows TLS Certificate Chain and Revocation Errors](https://everydayittips.com/guides/windows-tls-certificate-chain-troubleshooting/)** — investigate chain trust, AIA/CDP retrieval, hostname issues and relying-application context without bypassing validation.
 - [AI Is an Operating Model, Not a Purchase Order](https://www.davidschunk.com/writing/enterprise-ai-strategy) — an independent 180-day plan for enterprise AI governance, adoption, security, and measurable outcomes across departments.
 - [Enterprise AI pilot checklist](https://everydayittips.com/guides/enterprise-ai-pilot-checklist/) — scope, secure, evaluate, and support a real AI workflow.
 - [AI connector security and prompt injection](https://everydayittips.com/guides/ai-prompt-injection-connector-security/) — access boundaries, adversarial tests, approvals, and operational monitoring.
 - [Active Directory time sync and Kerberos clock skew](https://everydayittips.com/guides/active-directory-time-sync-kerberos/) — inspect the Windows Time hierarchy and establish evidence before changing clocks.
 - [Windows scheduled-task failure triage](https://everydayittips.com/guides/windows-scheduled-task-failure-triage/) — investigate execution identities, task history, working directories, and actual job outcomes.
 - [Between Russia and Ukraine: A Case for Peace with Guarantees](https://www.davidschunk.com/writing/between-russia-and-ukraine) — independent personal essay on heritage, diplomacy, Ukrainian sovereignty, and European security.
+
+## How these projects are built
+
+The work here follows a consistent standard: **read-only-first tooling**, inspectable output, reproducible field guides, operational verification, and handoff documentation. Examples use generic lab data, not employer or customer systems.
 
 ## Flagship resources
 
