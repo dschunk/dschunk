@@ -48,6 +48,9 @@
 
 ## Fresh from the workbench
 
+- **[Microsoft Entra Connect sync troubleshooting](https://everydayittips.com/guides/entra-connect-sync-error-troubleshooting/)** — trace scheduler state, connector operations, and object-level errors before forcing synchronization.
+- **[Exchange Online shared mailbox access audit](https://everydayittips.com/guides/exchange-online-shared-mailbox-audit/)** — verify Full Access, Send As, Send on Behalf, and forwarding without changing tenant permissions.
+- **[Windows DNS dynamic registration and stale records](https://everydayittips.com/guides/windows-dns-dynamic-registration-troubleshooting/)** — correlate DNS responses, client configuration, DHCP evidence, and record ownership.
 - **[Troubleshoot Slow Windows Domain Logons and Group Policy Processing](https://everydayittips.com/guides/windows-slow-domain-logon-gpo-diagnostics/)** — correlate Group Policy events, domain controller discovery and profile evidence before changing a production workstation.
 - **[Troubleshoot Windows TLS Certificate Chain and Revocation Errors](https://everydayittips.com/guides/windows-tls-certificate-chain-troubleshooting/)** — investigate chain trust, AIA/CDP retrieval, hostname issues and relying-application context without bypassing validation.
 - [AI Is an Operating Model, Not a Purchase Order](https://www.davidschunk.com/writing/enterprise-ai-strategy) — an independent 180-day plan for enterprise AI governance, adoption, security, and measurable outcomes across departments.
