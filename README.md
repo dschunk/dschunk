@@ -50,7 +50,7 @@
 
 ## Fresh from the workbench
 
-- **[Download TicketReady — Free Windows Support Report (ZIP)](https://github.com/dschunk/windows-it-toolkit/releases/download/ticketready-v0.2.1/TicketReady-v0.2.1.zip)** — free portable Windows support tool with guided troubleshooting, private HTML/JSON reports and before/after comparisons; no installation or upload. [Source & privacy notes](https://github.com/dschunk/windows-it-toolkit/tree/main/tools/TicketReady).
+- **[Download TicketReady — Free Windows Support Report (ZIP)](https://github.com/dschunk/windows-it-toolkit/releases/download/ticketready-v0.2.2/TicketReady-v0.2.2.zip)** — free portable Windows support tool with guided troubleshooting, private HTML/JSON reports and before/after comparisons; no installation or upload. [Source & privacy notes](https://github.com/dschunk/windows-it-toolkit/tree/main/tools/TicketReady).
 - **[Microsoft Entra Connect sync troubleshooting](https://everydayittips.com/guides/entra-connect-sync-error-troubleshooting/)** — trace scheduler state, connector operations, and object-level errors before forcing synchronization.
 - **[Exchange Online shared mailbox access audit](https://everydayittips.com/guides/exchange-online-shared-mailbox-audit/)** — verify Full Access, Send As, Send on Behalf, and forwarding without changing tenant permissions.
 - **[Windows DNS dynamic registration and stale records](https://everydayittips.com/guides/windows-dns-dynamic-registration-troubleshooting/)** — correlate DNS responses, client configuration, DHCP evidence, and record ownership.
