@@ -27,6 +27,17 @@ jobs:
             json_health: true
           - site: Everyday IT Tips
             url: https://everydayittips.com/
+          - site: Entra Connect field guide
+            url: https://everydayittips.com/guides/entra-connect-sync-error-troubleshooting/
+          - site: Exchange shared mailbox field guide
+            url: https://everydayittips.com/guides/exchange-online-shared-mailbox-audit/
+          - site: Windows DNS registration field guide
+            url: https://everydayittips.com/guides/windows-dns-dynamic-registration-troubleshooting/
+          - site: Voice of Adoptees
+            url: https://voiceofadoptees.com/
+          - site: Voice of Adoptees Worker Health
+            url: https://voiceofadoptees.com/api/health
+            json_health: true
           - site: Russian Adoptees Organization
             url: https://russianadoptees.com/
           - site: Russian Adoptees Organization Health
