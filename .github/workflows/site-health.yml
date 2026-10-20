@@ -27,6 +27,10 @@ jobs:
             json_health: true
           - site: Everyday IT Tips
             url: https://everydayittips.com/
+          - site: TicketReady download article
+            url: https://everydayittips.com/articles/ticketready-free-windows-support-report/
+          - site: TicketReady landing page
+            url: https://www.davidschunk.com/tools/ticketready
           - site: Entra Connect field guide
             url: https://everydayittips.com/guides/entra-connect-sync-error-troubleshooting/
           - site: Exchange shared mailbox field guide
