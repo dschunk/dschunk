@@ -21,6 +21,8 @@
 
 ---
 
+**[October 2026 portfolio website & GitHub maintenance review](docs/PORTFOLIO-AUDIT-2026-10-19.md)** — what shipped, production checks, and the remaining Voice of Adoptees deployment blocker.
+
 ## Find what you need
 
 | If you are... | Start here | What you will find |
